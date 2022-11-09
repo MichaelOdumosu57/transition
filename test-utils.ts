@@ -1,3 +1,15 @@
+  generateRandomNumber = (range: number = 100, additional: number = 0) => {
+    return Math.floor(Math.random() * range) + additional
+  }
+
+  generateRandomColor = () => {
+    return `#${this.generateRandomNumber(0xFFFFFF).toString(16)}`
+  }
+
+  selectRandomOptionFromArray = (myArray: Array<any>, index?: number) => {
+    return myArray[this.generateRandomNumber(index ?? myArray.length)]
+  }
+
 // angular
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { ChangeDetectorRef, Component, ModuleWithProviders, NO_ERRORS_SCHEMA, Provider, Type, ViewChild } from "@angular/core";
