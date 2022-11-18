@@ -1,0 +1,155 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run frontend",
+      "type": "shell",
+      "command": "cd .\\apps\\zero\\frontend\\AngularAppCurrent\\; npx ng serve --ssl=true --ssl-key=$env:WML_CERT_KEY0 --ssl-cert=$env:WML_CERT0",
+      "windows": {
+        "command": "cd .\\apps\\zero\\frontend\\AngularAppCurrent\\; npx ng serve --ssl=true --ssl-key=$env:WML_CERT_KEY0 --ssl-cert=$env:WML_CERT0"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "Reinstall Angular Package",
+      "type": "shell",
+      "command": "cd .\\apps\\zero\\frontend\\AngularAppCurrent\\; npm uninstall ${input:update_an_Angular_package0};npm install ${input:update_an_Angular_package1} ${input:update_an_Angular_package0};",
+
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Generate_Angular_Component",
+      "type": "shell",
+      "command": "cd .\\apps\\zero\\frontend\\AngularAppCurrent\\;npx ng g @windmillcode/angular-templates:component --name ${input:Generate_Angular_Component0}  --standalone ${input:Generate_Angular_Component1}  --cpnt-type ${input:Generate_Angular_Component2} --style-type ${input:Generate_Angular_Component3};",
+
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Test Frontend",
+      "type": "shell",
+      "command": "cd .\\apps\\zero\\frontend\\AngularAppCurrent\\; npx ng test --watch --code-coverage",
+      "windows": {
+        "command": "cd .\\apps\\zero\\frontend\\AngularAppCurrent\\; npx ng test --watch --code-coverage"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "Deploy Frontend",
+      "type": "shell",
+      "command": "; npx ng test --watch --code-coverage",
+      "windows": {
+        "command": ".\\ignore\\set_frontend_env.ps1; npm run build;npx swa deploy ./dist/azureSWA  --env production  --app-name nibls-angular-frontend-0"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Run backend",
+      "type": "shell",
+      "command": ".\\ignore\\run_backend_dev.ps1",
+      "windows": {
+        "command": ".\\ignore\\run_backend_dev.ps1"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "Test backend",
+      "type": "shell",
+      "command": ".\\ignore\\run_backend_test.ps1",
+      "windows": {
+        "command": ".\\ignore\\run_backend_test.ps1"
+      },
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Git management",
+      "type": "shell",
+      "command": "git status",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "update_an_Angular_package0",
+      "description": "provide an npm package to reninstall",
+      "default": "@windmillcode/angular-templates",
+      "type": "promptString"
+    },
+    {
+      "id": "update_an_Angular_package1",
+      "description": "dev install or dev dependency install",
+      "default": "-D",
+      "type": "pickString",
+      "options": ["-s", "-D"]
+    },
+    {
+      "id": "Generate_Angular_Component0",
+      "description": "the name of the component",
+      "type": "promptString",
+    },
+    {
+      "id": "update_an_Angular_package1",
+      "description": "component is standalone?",
+      "default": "false",
+      "type": "pickString",
+      "options": ["true", "false"]
+    },
+    {
+      "id": "update_an_Angular_package2",
+      "description": "type of component",
+      "default": "default",
+      "type": "pickString",
+      "options": ["default", "library"]
+    },
+    {
+      "id": "update_an_Angular_package3",
+      "description": "preset scss to choose from.",
+      "default": "type0",
+      "type": "pickString",
+      "options": ["type0","type1", "none"]
+    },
+  ]
+}
