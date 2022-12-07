@@ -1,7 +1,1 @@
-  documentQuerySelector(selector:string){
-    return document.querySelector(selector) as HTMLElement
-  }
-
-  documentQuerySelectorAll(selector:string){
-    return Array.from(document.querySelectorAll(selector)) as Array<HTMLElement>
-  }
+[Environment]::SetEnvironmentVariable('path',"C:\Users\Restop-2345\unneeded\heroku\bin;"+ [Environment]::GetEnvironmentVariable('path', "Machine"),"Machine")
