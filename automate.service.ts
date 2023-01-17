@@ -1,9 +1,4 @@
-credentials 
 
-u: michaelodumosu57@gmail.com
-p: ?_j2\ab4}dbL53:>A!-24U'T}dZ*
-
-https://app.pluralsight.com/library/courses/unit-testing-angular/table-of-contents
 
 eventDispatcher(event: string, element: HTMLElement | Window | Element,keyboardCharCode:number =13) {
 
