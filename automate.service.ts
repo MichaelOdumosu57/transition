@@ -1,14 +1,14 @@
     {
-      "label": "merge changes from current dev branch",
+      "label": "Create branch after merged changes",
       "type": "shell",
-      "command": " git checkout ${input:merge_changes_from_current_dev_branch0};git pull origin ${input:merge_changes_from_current_dev_branch0};git checkout -;git merge ${input:merge_changes_from_current_dev_branch0}",
+      "command": " git checkout ${input:create_branch_after_merged_changes0};git pull origin ${input:create_branch_after_merged_changes0};git branch --delete ${input:create_branch_after_merged_changes1};git checkout -b ${input:create_branch_after_merged_changes2}",
       "group": "none",
       "presentation": {
         "reveal": "always",
         "panel": "new",
-        // "close": true
+        "close": true
       }
-    }     
+    },
 
 eventDispatcher(event: string, element: HTMLElement | Window | Element,keyboardCharCode:number =13) {
 
