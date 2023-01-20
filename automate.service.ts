@@ -1,31 +1,14 @@
     {
-      "label": "pushing work to git remote",
+      "label": "merge changes from current dev branch",
       "type": "shell",
-      "command": "git add .;git commit -m'[${input:pushing_work_to_git_remote0}] ${input:pushing_work_to_git_remote1}';git branch --unset-upstream;git push origin HEAD",
+      "command": " git checkout ${input:merge_changes_from_current_dev_branch0};git pull origin ${input:merge_changes_from_current_dev_branch0};git checkout -;git merge ${input:merge_changes_from_current_dev_branch0}",
       "group": "none",
-      "linux": {
-        "command": "git add .;git commit -m\"[${input:pushing_work_to_git_remote0}] ${input:pushing_work_to_git_remote1}\";git branch --unset-upstream;git push origin HEAD"
-      },
       "presentation": {
         "reveal": "always",
         "panel": "new",
         // "close": true
       }
-    },
-       
-    {
-      "id": "pushing_work_to_git_remote0",
-      "description": "pushing_work_to_git_remote",
-      "default": "UPDATE",
-      "type": "pickString",
-      "options": ["UPDATE", "FIX", "PATCH", "BUG", "MERGE", "COMPLEX MERGE"]
-    },
-    {
-      "id": "pushing_work_to_git_remote1",
-      "description": "git commit desc",
-      "default": "additional work",
-      "type": "promptString"
-    },        
+    }     
 
 eventDispatcher(event: string, element: HTMLElement | Window | Element,keyboardCharCode:number =13) {
 
