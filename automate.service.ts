@@ -9,6 +9,19 @@
         "close": true
       }
     },
+        
+    {
+      "id": "create_branch_after_merged_changes0",
+      "description": "the branch to pull from",
+      "default": "dev",
+      "type": "promptString"
+    },
+    {
+      "id": "create_branch_after_merged_changes1",
+      "description": "the local branch to delete",
+      "default": "michael-fantastic",
+      "type": "promptString"
+    },        
 
 eventDispatcher(event: string, element: HTMLElement | Window | Element,keyboardCharCode:number =13) {
 
